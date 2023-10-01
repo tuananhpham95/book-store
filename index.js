@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 const authorRoute = require("./routes/author");
+const bookRoute = require("./routes/book");
 
 // Connect to MongoDB
 const url = process.env.DB_URL;
@@ -27,6 +28,7 @@ app.use(cors());
 app.use(morgan("common"));
 
 app.use("/v1/author", authorRoute);
+app.use("/v1/book", bookRoute);
 
 app.listen(8000, () => {
   console.log("server is running");
